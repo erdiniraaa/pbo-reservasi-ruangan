@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Client - Lihat Ruangan</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e8f5e9; /* Light green background */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        h1 {
+            color: #388e3c; /* Dark Green */
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        .ruangan-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .ruangan-card {
+            background-color: #81c784; /* Light green */
+            border-radius: 15px;
+            padding: 30px 20px;
+            width: 150px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .ruangan-card:hover {
+            background-color: #66bb6a; /* Slightly darker green */
+            transform: translateY(-10px); /* Add slight elevation on hover */
+        }
+        .ruangan-card h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+        .ruangan-card:active {
+            transform: translateY(5px); /* Add pressed effect */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Ruangan</h1>
+    <div class="ruangan-container">
+        <div class="ruangan-card" onclick="location.href='client/room/kelas'">
+            <h3>Kelas</h3>
+        </div>
+        <div class="ruangan-card" onclick="location.href='/client/room/lab'">
+            <h3>Lab</h3>
+        </div>
+
+
+        <div class="ruangan-card" onclick="location.href='client/room/aula'">
+            <h3>Aula</h3>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

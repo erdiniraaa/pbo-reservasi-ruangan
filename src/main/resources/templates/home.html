@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Homepage</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      backdrop-filter: blur(5px);
+    }
+
+    .homepage-box {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 2rem;
+    }
+
+    .homepage-box h1 {
+      font-size: 3.5rem;
+      letter-spacing: 6px;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .homepage-box .subtext {
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .btn-home {
+      padding: 1rem 2.5rem;
+      background: #d32f2f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-home:hover {
+      background: #b71c1c;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .homepage-box h1 {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+      }
+
+      .homepage-box .subtext {
+        font-size: 16px;
+      }
+
+      .btn-home {
+        font-size: 14px;
+        padding: 0.75rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <header class="navbar">
+    SISTEM RESERVASI RUANGAN
+  </header>
+
+  <div class="homepage-box">
+    <h1>RESERVASI RUANGAN</h1>
+    <p class="subtext">TELKOM UNIVERSITY SURABAYA</p>
+    <button class="btn-home" onclick="window.location.href='/login'">LOGIN</button>
+  </div>
+</body>
+</html>

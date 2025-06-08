@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Daftar Ruangan</title>
+</head>
+<body>
+<h2>Daftar Ruangan</h2>
+<ul>
+  <li th:each="room : ${rooms}">
+    <!-- Tautan yang mengarah ke daftar booking berdasarkan ID ruangan -->
+    <a th:href="@{/admin/rooms/bookings(roomId=${room.id})}" th:text="${room.name}">Room</a>
+  </li>
+</ul>
+</body>
+</html>

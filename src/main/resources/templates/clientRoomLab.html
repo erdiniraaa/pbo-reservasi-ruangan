@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Lab</title>
+</head>
+<body>
+
+<h1>Daftar Lab</h1>
+<ul>
+    <li th:each="lab : ${labs}" th:text="${lab}">Lab</li>
+</ul>
+
+</body>
+</html>

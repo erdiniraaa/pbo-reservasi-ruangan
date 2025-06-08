@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+        }
+
+        header {
+            background-color: #28a745; /* Green color for header */
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .card p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #007BFF; /* Blue color for action buttons */
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .card a:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #218838;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Admin Dashboard</h1>
+</header>
+
+<div class="container">
+    <!-- Daftar Ruangan -->
+    <div class="card">
+        <h3>Daftar Ruangan</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Ruangan</th>
+                <th>Jumlah</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Ruang Kelas</td>
+                <td>5</td> <!-- Sesuaikan dengan data yang ada -->
+                <td><a href="/admin/rooms/class" class="button">Lihat Ruang Kelas</a></td>
+            </tr>
+            <tr>
+                <td>Ruang Lab</td>
+                <td>3</td> <!-- Sesuaikan dengan data yang ada -->
+                <td><a href="/admin/rooms/lab" class="button">Lihat Ruang Lab</a></td>
+            </tr>
+            <tr>
+                <td>Aula</td>
+                <td>1</td> <!-- Sesuaikan dengan data yang ada -->
+                <td><a href="/admin/rooms/aula" class="button">Lihat Ruang Aula</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pending Bookings -->
+    <div class="card">
+        <h3>Pending Bookings</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>User</th>
+                <th>Room</th>
+                <th>Booking Date</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Loop over the pending bookings -->
+            <tr th:each="booking : ${pendingBookings}">
+                <td th:text="${booking.id}"></td>
+                <td th:text="${booking.user.username}"></td>
+                <td th:text="${booking.room.name}"></td>
+                <td th:text="${booking.bookingDate}"></td>
+                <td>
+                    <form action="/admin/approveBooking" method="post">
+                        <input type="hidden" name="bookingId" th:value="${booking.id}" />
+                        <button type="submit" class="button">Accept</button>
+                    </form>
+                    <form action="/admin/rejectBooking" method="post">
+                        <input type="hidden" name="bookingId" th:value="${booking.id}" />
+                        <button type="submit" class="button" style="background-color: #dc3545;">Reject</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

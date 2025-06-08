@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserve Room</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 600px;
+            background-color: white;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #444;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .checkbox-group {
+            margin-top: 10px;
+        }
+        .checkbox-group label {
+            display: inline-block;
+            margin-left: 5px;
+            font-weight: normal;
+        }
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    Reserve Room
+</div>
+<div class="container">
+    <h2>Formulir Reservasi Ruangan</h2>
+    <form th:action="@{/submit-reservation}" method="post">
+        <label for="room">Ruangan</label>
+        <select id="room" name="room" required>
+            <option value="">-- Pilih Ruangan --</option>
+            <option value="Lab A">Lab A</option>
+            <option value="Lab B">Lab B</option>
+            <option value="Kelas 101">Kelas 101</option>
+            <option value="Kelas 102">Kelas 102</option>
+        </select>
+
+        <label for="date">Tanggal</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Jam Mulai</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="purpose">Keperluan</label>
+        <textarea id="purpose" name="purpose" rows="3" placeholder="Contoh: Ujian, Rapat, dll." required></textarea>
+
+        <label for="userType">Jenis Pengguna</label>
+        <select id="userType" name="userType" required>
+            <option value="">-- Pilih --</option>
+            <option value="mahasiswa">Mahasiswa</option>
+            <option value="dosen">Dosen</option>
+        </select>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="needProjector" name="needProjector">
+            <label for="needProjector">Butuh Proyektor</label>
+        </div>
+
+        <button type="submit">Ajukan Reservasi</button>
+    </form>
+</div>
+</body>
+</html>
