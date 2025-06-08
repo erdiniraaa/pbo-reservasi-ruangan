@@ -14,7 +14,7 @@
         }
 
         header {
-            background-color: #28a745; /* Green color for header */
+            background-color: #343a40; /* Background abu-abu gelap untuk header */
             color: white;
             padding: 1rem 2rem;
             text-align: center;
@@ -57,14 +57,14 @@
             display: inline-block;
             margin-top: 1rem;
             padding: 0.5rem 1rem;
-            background-color: #007BFF; /* Blue color for action buttons */
+            background-color: #28a745; /* Tombol hijau untuk aksi "Lihat Ruangan" */
             color: white;
             text-decoration: none;
             border-radius: 6px;
         }
 
         .card a:hover {
-            background-color: #0056b3;
+            background-color: #218838; /* Tombol hijau gelap saat hover */
         }
 
         table {
@@ -85,7 +85,7 @@
 
         .button {
             padding: 8px 15px;
-            background-color: #28a745;
+            background-color: #007BFF; /* Tombol biru untuk Pending Bookings */
             color: white;
             text-decoration: none;
             border-radius: 6px;
@@ -93,7 +93,15 @@
         }
 
         .button:hover {
-            background-color: #218838;
+            background-color: #0056b3; /* Tombol biru gelap saat hover */
+        }
+
+        .button-danger {
+            background-color: #dc3545; /* Tombol merah untuk Reject */
+        }
+
+        .button-danger:hover {
+            background-color: #c82333; /* Merah gelap saat hover */
         }
 
     </style>
@@ -163,7 +171,7 @@
                     </form>
                     <form action="/admin/rejectBooking" method="post">
                         <input type="hidden" name="bookingId" th:value="${booking.id}" />
-                        <button type="submit" class="button" style="background-color: #dc3545;">Reject</button>
+                        <button type="submit" class="button button-danger">Reject</button>
                     </form>
                 </td>
             </tr>

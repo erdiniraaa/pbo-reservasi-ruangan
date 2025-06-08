@@ -11,16 +11,31 @@
         }
 
         body {
-            background: linear-gradient(135deg, #e0f7fa, #ffffff);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Gambar latar belakang yang lebih netral atau bisa diganti dengan gambar kampus */
+            background-image: url('https://surabaya.telkomuniversity.ac.id/wp-content/uploads/2023/08/Telkom-University-National-Campus.jpg');
+            background-size: cover;
+            background-position: center;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
+        /* Lapisan transparan di atas gambar */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Warna hitam transparan untuk menurunkan kontras gambar */
+            z-index: -1; /* Menempatkan lapisan di belakang konten */
+        }
+
         .login-box {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.8); /* Transparansi sedikit untuk memberi efek background */
             padding: 2.5rem 3rem;
             border-radius: 16px;
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
@@ -31,7 +46,7 @@
 
         h1 {
             text-align: center;
-            color: #2e7d32;
+            color: #343a40; /* Warna gelap yang senada dengan warna header ruangan kelas */
             margin-bottom: 1.5rem;
             font-size: 2rem;
         }
@@ -55,14 +70,14 @@
         }
 
         input:focus {
-            border-color: #4caf50;
+            border-color: #28a745; /* Hijau senada dengan tombol */
             outline: none;
         }
 
         button {
             width: 100%;
             padding: 0.75rem;
-            background-color: #4caf50;
+            background-color: #6c757d; /* Warna abu-abu senada dengan halaman daftar ruang */
             color: white;
             border: none;
             border-radius: 10px;
@@ -73,7 +88,7 @@
         }
 
         button:hover {
-            background-color: #388e3c;
+            background-color: #5a6368; /* Warna abu gelap saat hover */
         }
 
         .error-message {
